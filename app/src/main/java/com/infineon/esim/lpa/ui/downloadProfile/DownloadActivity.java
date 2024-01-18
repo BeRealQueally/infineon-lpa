@@ -340,12 +340,14 @@ final public class DownloadActivity extends AppCompatActivity {
                 break;
             case DOWNLOAD_PROFILE_STARTED:
             case DOWNLOAD_PROFILE_FINISHED:
-                downloadResult = viewModel.getDownloadResult();
-                if(downloadResult != null) {
-                    if(downloadResult.getSuccess() && authenticateResult.getSuccess()) {
-                        setFinalConfirmationScreen(authenticateResult.getProfileMetadata());
-                    } else {
-                        setErrorScreen(downloadResult.getErrorDetails());
+                if(authenticateResult != null) {
+                    downloadResult = viewModel.getDownloadResult();
+                    if(downloadResult != null) {
+                        if(downloadResult.getSuccess() && authenticateResult.getSuccess()) {
+                            setFinalConfirmationScreen(authenticateResult.getProfileMetadata());
+                        } else {
+                            setErrorScreen(downloadResult.getErrorDetails());
+                        }
                     }
                 }
                 break;
