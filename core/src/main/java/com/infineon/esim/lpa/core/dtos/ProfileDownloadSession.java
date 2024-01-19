@@ -67,6 +67,8 @@ import com.gsma.sgp.messages.rspdefinitions.DeviceInfo;
 import com.gsma.sgp.messages.rspdefinitions.DownloadErrorCode;
 import com.gsma.sgp.messages.rspdefinitions.EUICCInfo1;
 import com.gsma.sgp.messages.rspdefinitions.EUICCSigned2;
+import com.gsma.sgp.messages.rspdefinitions.ErrorReason;
+import com.gsma.sgp.messages.rspdefinitions.ErrorResult;
 import com.gsma.sgp.messages.rspdefinitions.EuiccCancelSessionSigned;
 import com.gsma.sgp.messages.rspdefinitions.EuiccSigned1;
 import com.gsma.sgp.messages.rspdefinitions.GetBoundProfilePackageOk;
@@ -438,6 +440,9 @@ public class ProfileDownloadSession {
                 updateState(PROFILE_INSTALLATION_SUCCESS);
                 return;
             }
+
+            ErrorResult result = profileInstallationResult.getProfileInstallationResultData().getFinalResult().getErrorResult();
+            this.lastError = new RemoteError("Failed",result.getBppCommandId().toString(),result.getErrorReason().toString(),result.getPpiResponse().toString());
         }
 
         updateState(PROFILE_INSTALLATION_FAILED);
