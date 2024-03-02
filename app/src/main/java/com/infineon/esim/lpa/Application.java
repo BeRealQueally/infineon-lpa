@@ -106,6 +106,10 @@ public class Application extends android.app.Application {
     public static void initializeTrustedRootCas() {
         List<Certificate> liveCertificates = new ArrayList<>();
         liveCertificates.add(IO.readCertificateFromResource(resources, R.raw.symantec_gsma_rspv2_root_ci1_pem));
+        liveCertificates.add(IO.readCertificateFromResource(resources, R.raw.ccs_netca_esim_root_ca_pem));
+        liveCertificates.add(IO.readCertificateFromResource(resources, R.raw.cmca_esim_root_ca_pem));
+        liveCertificates.add(IO.readCertificateFromResource(resources, R.raw.cttl_esim_root_ca_pem));
+        liveCertificates.add(IO.readCertificateFromResource(resources, R.raw.cuca_esim_root_ca_pem));
 
         List<Certificate> testCertificates = new ArrayList<>();
         testCertificates.add(IO.readCertificateFromResource(resources, R.raw.gsma_test_root_ca_cert_pem));
