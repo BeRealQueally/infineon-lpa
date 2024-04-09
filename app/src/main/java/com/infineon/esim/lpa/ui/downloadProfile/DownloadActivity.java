@@ -356,6 +356,7 @@ final public class DownloadActivity extends AppCompatActivity {
                 progressDialog = DialogHelper.showProgressDialog(this, R.string.action_switching_profile);
                 disallowBackButtonPress();
             case ENABLE_PROFILE_FINISHED:
+            case FINISHED_DOWNLOAD_SESSION:
                 finish();
                 break;
             case CANCEL_SESSION_STARTED:
@@ -409,7 +410,7 @@ final public class DownloadActivity extends AppCompatActivity {
 
     private final View.OnClickListener cancelButtonClickListener = v -> cancelSession();
 
-    private final View.OnClickListener doneButtonClickListener = v -> finish();
+    private final View.OnClickListener doneButtonClickListener = v -> finishSession();
 
     private final View.OnClickListener enableNewProfileButtonClickListener = new View.OnClickListener() {
         @Override
@@ -477,6 +478,11 @@ final public class DownloadActivity extends AppCompatActivity {
     private void cancelSession() {
         Log.debug(TAG,"Cancel profile download session.");
         viewModel.cancelSession(CancelSessionReasons.END_USER_REJECTION);
+    }
+
+    private void finishSession() {
+        Log.debug(TAG,"Finish profile download session.");
+        viewModel.finishSession();
     }
 
     // endregion

@@ -63,6 +63,10 @@ public class DownloadViewModel extends ViewModel {
         dataModel.cancelSession(cancelSessionReason);
     }
 
+    public void finishSession() {
+        dataModel.finishSession();
+    }
+
     public String getEuiccName() {
         return dataModel.getCurrentEuiccLiveData().getValue();
     }

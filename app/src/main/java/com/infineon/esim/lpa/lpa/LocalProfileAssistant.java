@@ -281,6 +281,12 @@ public final class LocalProfileAssistant extends LocalProfileAssistantCoreImpl i
                 e -> statusAndEventHandler.onError(new Error("Error cancelling session.", e.getMessage())));
     }
 
+    public void startFinishSession() {
+        Log.debug(TAG, "Finish session");
+
+        statusAndEventHandler.onStatusChange(ActionStatus.FINISHED_DOWNLOAD_SESSION);
+    }
+
     @Override
     public void onEuiccConnectionUpdate(EuiccConnection euiccConnection) {
         Log.debug(TAG, "Updated eUICC connection.");

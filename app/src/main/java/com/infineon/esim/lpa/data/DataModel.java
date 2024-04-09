@@ -205,6 +205,10 @@ public class DataModel implements StatusAndEventHandler{
         return lpa.getCancelSessionResult();
     }
 
+    public void finishSession() {
+        lpa.startFinishSession();
+    }
+
     // endregion
 
     // region Status and error handling

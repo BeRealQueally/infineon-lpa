@@ -77,6 +77,7 @@ public class AsyncActionStatus {
             case AUTHENTICATE_DOWNLOAD_FINISHED:
             case DOWNLOAD_PROFILE_FINISHED:
             case CANCEL_SESSION_FINISHED:
+            case FINISHED_DOWNLOAD_SESSION:
             default: return false;
         }
     }
