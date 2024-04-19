@@ -39,6 +39,7 @@ public class EuiccInfo {
     private static final String TAG = EuiccInfo.class.getName();
     private String eid;
     private String configuredAddresses;
+    private String rulesAuthorisationTable;
     private final String profileVersion;
     private final String svn;
     private final String euiccFirmwareVer;
@@ -58,12 +59,13 @@ public class EuiccInfo {
     private final String treProductReference;
 
     public EuiccInfo(EUICCInfo2 euiccInfo2) {
-        this(null, null, euiccInfo2);
+        this(null, null, null,euiccInfo2);
     }
 
-    public EuiccInfo(String eid, String configuredAddresses, EUICCInfo2 euiccInfo2) {
+    public EuiccInfo(String eid, String configuredAddresses,String rulesAuthorisationTable, EUICCInfo2 euiccInfo2) {
         this.eid = eid;
         this.configuredAddresses = configuredAddresses;
+        this.rulesAuthorisationTable = rulesAuthorisationTable;
 
         this.profileVersion = versionTypeToString(euiccInfo2.getBaseProfilePackageVersion());
         this.svn = versionTypeToString(euiccInfo2.getLowestSvn());
@@ -110,6 +112,25 @@ public class EuiccInfo {
 
     public String getConfiguredAddresses() {
         return configuredAddresses;
+    }
+
+    public void setRulesAuthorisationTable(String rulesAuthorisationTable) {
+        StringBuilder sb = new StringBuilder();
+        String[] lines = rulesAuthorisationTable.split("\\n");
+
+        for (int i = 2; i < lines.length - 2 ; i++) {
+            sb.append(lines[i].substring(2)).append("\n");
+        }
+
+        if (sb.toString().isEmpty()) {
+            this.rulesAuthorisationTable = "N/A";
+        } else {
+            this.rulesAuthorisationTable = sb.toString();
+        }
+    }
+
+    public String getRulesAuthorisationTable() {
+        return rulesAuthorisationTable;
     }
 
     public String getProfileVersion() {

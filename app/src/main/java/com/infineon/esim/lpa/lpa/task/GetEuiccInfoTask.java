@@ -47,9 +47,13 @@ public class GetEuiccInfoTask implements Callable<EuiccInfo> {
             String address = lpa.getEuiccConfiguredAddresses();
             Log.debug(TAG,"EuiccConfiguredAddresses: " + address);
 
+            String ratInfo = lpa.getRatInfo();
+            Log.debug(TAG,"RulesAuthorisationTable: " + ratInfo);
+
             EuiccInfo euiccInfo = lpa.getEuiccInfo2();
             euiccInfo.setEid(eid);
             euiccInfo.setConfiguredAddresses(address);
+            euiccInfo.setRulesAuthorisationTable(ratInfo);
 
             Log.debug(TAG,"EuiccInfo: " + euiccInfo);
 

@@ -423,5 +423,30 @@
             android:layout_height="20dp"
             android:layout_width="match_parent" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/euicc_info_rulesAuthorisationTable_title"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:textIsSelectable="true"
+            />
+
+        <TextView
+            android:id="@+id/text_rulesAuthorisationTable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/euicc_info_rulesAuthorisationTable_example"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:typeface="monospace"
+            android:textIsSelectable="true"
+            />
+
+        <Space
+            android:layout_height="20dp"
+            android:layout_width="match_parent" />
+
     </LinearLayout>
 </ScrollView>

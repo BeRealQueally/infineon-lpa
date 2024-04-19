@@ -43,6 +43,7 @@ public interface LocalProfileAssistantCore {
     // Profile management
     String getEID() throws Exception;
     String getEuiccConfiguredAddresses() throws Exception;
+    String getRatInfo() throws Exception;
     EuiccInfo getEuiccInfo2() throws Exception;
     List<ProfileMetadata> getProfiles() throws Exception;
 

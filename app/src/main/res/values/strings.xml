@@ -125,6 +125,8 @@
     <string name="euicc_info_euicc_sas_accreditation_number_example">GI-BA-UP-0000</string>
     <string name="euicc_info_certificationDataObject_title">Certification Data</string>
     <string name="euicc_info_certificationDataObject_example">1.2.840.1234567/myPlatformLabel</string>
+    <string name="euicc_info_rulesAuthorisationTable_title">RulesAuthorisationTable</string>
+    <string name="euicc_info_rulesAuthorisationTable_example">pprIds: 111</string>
 
     <!-- Scan Barcode Activity-->
     <string name="scan_qr_title">Download Profile</string>

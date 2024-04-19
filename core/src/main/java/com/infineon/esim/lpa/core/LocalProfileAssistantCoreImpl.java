@@ -48,6 +48,7 @@ import com.infineon.esim.lpa.core.worker.local.EnableProfileWorker;
 import com.infineon.esim.lpa.core.worker.local.GetEidWorker;
 import com.infineon.esim.lpa.core.worker.local.GetEuiccConfiguredAddressesWorker;
 import com.infineon.esim.lpa.core.worker.local.GetEuiccInfo2Worker;
+import com.infineon.esim.lpa.core.worker.local.GetRatWorker;
 import com.infineon.esim.lpa.core.worker.local.ListProfilesWorker;
 import com.infineon.esim.lpa.core.worker.local.SetNicknameWorker;
 import com.infineon.esim.lpa.core.worker.remote.AuthenticateWorker;
@@ -124,6 +125,11 @@ public class LocalProfileAssistantCoreImpl implements LocalProfileAssistantCore 
     @Override
     public String getEuiccConfiguredAddresses() throws Exception {
         return new GetEuiccConfiguredAddressesWorker(es10Interface).getEuiccConfiguredAddresses();
+    }
+
+    @Override
+    public String getRatInfo() throws Exception {
+        return new GetRatWorker(es10Interface).getRat().toString();
     }
 
     @Override

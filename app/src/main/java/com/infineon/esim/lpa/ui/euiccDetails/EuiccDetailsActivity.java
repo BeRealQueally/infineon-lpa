@@ -48,6 +48,7 @@ public class EuiccDetailsActivity extends AppCompatActivity {
 
     private TextView textViewEid;
     private TextView textViewConfiguredAddresses;
+    private TextView textViewRulesAuthorisationTable;
     private TextView textViewTcaVersion;
     private TextView textViewGsmaVersion;
     private TextView textViewFirmwareVer;
@@ -105,6 +106,7 @@ public class EuiccDetailsActivity extends AppCompatActivity {
     private void attachUi() {
         textViewEid = findViewById(R.id.text_eid);
         textViewConfiguredAddresses = findViewById(R.id.text_configured_addresses);
+        textViewRulesAuthorisationTable = findViewById(R.id.text_rulesAuthorisationTable);
         textViewTcaVersion = findViewById(R.id.text_tca_version);
         textViewGsmaVersion = findViewById(R.id.text_gsma_version);
         textViewFirmwareVer = findViewById(R.id.text_firmware_version);
@@ -123,6 +125,7 @@ public class EuiccDetailsActivity extends AppCompatActivity {
 
         textViewEid.setText("");
         textViewConfiguredAddresses.setText("");
+        textViewRulesAuthorisationTable.setText("");
         textViewTcaVersion.setText("");
         textViewGsmaVersion.setText("");
         textViewFirmwareVer.setText("");
@@ -147,6 +150,7 @@ public class EuiccDetailsActivity extends AppCompatActivity {
 
         textViewEid.setText(euiccInfo.getEid());
         textViewConfiguredAddresses.setText(euiccInfo.getConfiguredAddresses());
+        textViewRulesAuthorisationTable.setText(euiccInfo.getRulesAuthorisationTable());
         textViewTcaVersion.setText(euiccInfo.getProfileVersion());
         textViewGsmaVersion.setText(euiccInfo.getSvn());
         textViewFirmwareVer.setText(euiccInfo.getEuiccFirmwareVer());
