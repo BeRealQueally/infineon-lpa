@@ -84,7 +84,7 @@ public class ActivationCode implements Parcelable {
         boolean validity = false;
 
         // Remove trailing "LPA:" if present
-        this.activationCode = barcode.replace("LPA:", "");
+        this.activationCode = barcode.replaceAll("(?i)^LPA:", "");
 
         String[] parts = activationCode.split("\\$");
         if((parts.length >= 3) && (parts.length <= 5)) {
